@@ -1,0 +1,69 @@
+/* src/pages/MatchingPage.module.css */
+.pageContainer { position: relative; display: flex; width: 100%; transition: margin-right 0.4s ease-in-out; }
+.mainContentArea { flex-grow: 1; display: flex; flex-direction: column; min-width: 0; transition: all 0.4s ease-in-out; }
+
+.chatPanelActive .mainContentArea {}
+.header { padding-bottom: var(--spacing-6); border-bottom: 1px solid var(--color-border); margin-bottom: var(--spacing-6); }
+.header h1 { margin-bottom: var(--spacing-2); }
+.header p { margin: 0; margin-bottom: var(--spacing-6); }
+.resultsArea { display: flex; flex-direction: column; flex-grow: 1; }
+.procurementList { flex-grow: 1; }
+.resultsCount { font-size: var(--fs-sm); color: var(--color-text-muted); margin-bottom: var(--spacing-4); }
+
+/* Unified style for placeholder, error, and no-results messages */
+.pageStateMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: var(--spacing-16) var(--spacing-6);
+  flex-grow: 1;
+  gap: var(--spacing-2); /* Adjusted gap */
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius-lg);
+  border: 1px dashed var(--color-border);
+}
+.pageStateMessage svg {
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-4);
+}
+.pageStateMessage h2 {
+  font-size: var(--fs-2xl);
+  color: var(--color-text-emphasis);
+  margin: 0;
+}
+.pageStateMessage p {
+  font-size: var(--fs-lg);
+  color: var(--color-text-muted);
+  margin: 0;
+  max-width: 500px; /* Limit width of descriptive text */
+}
+/* Style for error message text */
+.pageStateMessage p:not(:first-child) {
+  color: var(--color-text-emphasis);
+}
+
+.footer { display: flex; justify-content: center; margin-top: var(--spacing-8); padding-top: var(--spacing-6); border-top: 1px solid var(--color-border); }
+.paginationControls { display: flex; align-items: center; gap: var(--spacing-4); }
+.paginationControls span { font-size: var(--fs-sm); color: var(--color-text-muted); font-weight: 500; min-width: 120px; text-align: center; }
+
+/* Dark Theme for React Datepicker */
+:global(.react-datepicker-wrapper) { display: inline-block; }
+:global(.react-datepicker__input-container .react-datepicker__close-button) { padding-top: 0; right: -22px; top: 50%; transform: translateY(-50%); }
+:global(.react-datepicker__input-container .react-datepicker__close-button::after) { background-color: transparent !important; color: var(--color-text-muted) !important; font-size: 28px !important; }
+:global(.react-datepicker-popper) { z-index: 10; }
+:global(.react-datepicker) { background-color: var(--color-surface-alt) !important; border: 1px solid var(--color-border) !important; color: var(--color-text) !important; border-radius: var(--border-radius-lg) !important; font-family: var(--font-family-sans); box-shadow: var(--shadow-lg); }
+:global(.react-datepicker__header) { background-color: var(--color-surface) !important; border-bottom: 1px solid var(--color-border) !important; padding-top: var(--spacing-3); }
+:global(.react-datepicker__current-month), :global(.react-datepicker-time__header), :global(.react-datepicker-year-header) { color: var(--color-text-emphasis) !important; font-size: var(--fs-base) !important; font-weight: 600; }
+:global(.react-datepicker__day-name), :global(.react-datepicker__day), :global(.react-datepicker__time-name) { color: var(--color-text-muted) !important; }
+:global(.react-datepicker__day:hover), :global(.react-datepicker__month-text:hover), :global(.react-datepicker__quarter-text:hover), :global(.react-datepicker__year-text:hover) { background-color: var(--color-surface) !important; }
+:global(.react-datepicker__day--selected), :global(.react-datepicker__day--keyboard-selected) { background-color: var(--color-primary) !important; color: var(--color-background) !important; }
+:global(.react-datepicker__day--disabled) { opacity: 0.4 !important; }
+:global(.react-datepicker__navigation) { top: 10px; }
+:global(.react-datepicker__navigation-icon::before) { border-color: var(--color-text-muted) !important; }
+:global(.react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::before),
+:global(.react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::after) { border-bottom-color: var(--color-surface-alt) !important; }
+:global(.react-datepicker-popper[data-placement^=top] .react-datepicker__triangle::before),
+:global(.react-datepicker-popper[data-placement^=top] .react-datepicker__triangle::after) { border-top-color: var(--color-surface-alt) !important; }

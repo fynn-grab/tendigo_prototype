@@ -1,0 +1,53 @@
+/* src/components/common/InitialSearchPlaceholder.module.css */
+.placeholderContainer {
+    width: 100%; /* formerly 98em */
+    /* Use a dashed border to indicate it's a placeholder */
+    border-style: dashed;
+    background-color: var(--color-surface);
+    /* Make sure it's high enough */
+    min-height: 220px;
+}
+
+.placeholderContainer:hover {
+  /* Disable the hover effects from the original list item */
+  transform: none;
+  box-shadow: none;
+  border-color: var(--color-border-hover);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  color: var(--color-text-muted);
+  padding: var(--spacing-4);
+}
+
+.icon {
+  margin-bottom: var(--spacing-4);
+}
+
+.title {
+  font-size: var(--fs-2xl);
+  color: var(--color-text-emphasis);
+  margin-bottom: var(--spacing-2);
+}
+
+.text {
+  font-size: var(--fs-lg);
+  max-width: 550px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: var(--fs-xl);
+  }
+  .text {
+    font-size: var(--fs-base);
+  }
+}

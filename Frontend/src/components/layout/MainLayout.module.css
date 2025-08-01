@@ -1,0 +1,29 @@
+/* src/components/layout/MainLayout.module.css */
+.layout {
+  display: flex;
+  height: 100vh;
+  background-color: var(--color-background);
+  overflow: hidden; /* Prevent body scroll */
+}
+
+.content {
+  flex-grow: 1;
+  /* More padding for a spacious layout */
+  padding: var(--spacing-8) var(--spacing-12);
+  overflow-y: auto;
+}
+
+@media (max-width: 992px) {
+  .content {
+    padding: var(--spacing-6) var(--spacing-8);
+  }
+}
+
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+  .content {
+    padding: var(--spacing-4) var(--spacing-4);
+  }
+}

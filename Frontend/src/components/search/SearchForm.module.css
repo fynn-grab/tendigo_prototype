@@ -1,0 +1,174 @@
+/* src/components/search/SearchForm.module.css */
+.searchForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-5);
+  background-color: var(--color-surface);
+  padding: var(--spacing-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+}
+
+.searchGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.criterionRow {
+  display: grid;
+  /* Grid for subsequent rows (with operator) */
+  grid-template-columns: 90px 1fr 110px 110px auto;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+/* Special grid for the first row to make input wider */
+.firstCriterionRow {
+  grid-template-columns: 1fr 110px 110px auto;
+}
+
+/* Make the search input on the first row span the first column */
+.firstCriterionRow .searchInputWrapper {
+  grid-column: 1 / 2;
+}
+
+.criterionSelect {
+  padding: var(--spacing-2) var(--spacing-3);
+  background-color: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  color: var(--color-text);
+  font-weight: 500;
+  height: 44px;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%238B949E' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+.criterionSelect:hover {
+  border-color: var(--color-border-hover);
+}
+.criterionSelect:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-focus-ring);
+}
+
+.searchInputWrapper { height: 44px; }
+.searchInput {
+  width: 100%; height: 100%;
+  padding: var(--spacing-2) var(--spacing-3);
+  background-color: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  color: var(--color-text-emphasis);
+  font-size: var(--fs-base);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.searchInput:hover {
+  border-color: var(--color-border-hover);
+}
+.searchInput::placeholder {
+  color: var(--color-text-muted);
+}
+.searchInput:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-focus-ring);
+}
+
+.addCriterionContainer {
+  /* Aligns with the start of the search input on subsequent rows */
+  padding-left: calc(90px + var(--spacing-3));
+}
+.firstCriterionRow + .criterionRow .addCriterionContainer,
+.criterionRow:first-child .addCriterionContainer {
+   /* Reset for the first row */
+  padding-left: 0;
+}
+
+.addButton, .removeButton {
+  background: none; border: none; cursor: pointer;
+  color: var(--color-text-muted); display: flex;
+  align-items: center; gap: var(--spacing-2);
+  transition: color 0.2s; padding: var(--spacing-1);
+}
+
+.addButton {
+  font-size: var(--fs-sm); font-weight: 500;
+  color: var(--color-primary);
+  border-radius: var(--border-radius);
+}
+.addButton:hover {
+  color: var(--color-primary-hover);
+}
+
+.removeButton { border-radius: var(--border-radius-full); }
+.removeButton:hover { color: var(--color-danger); }
+
+.bottomControls {
+  display: flex;
+  gap: var(--spacing-4);
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: var(--spacing-2);
+  padding-top: var(--spacing-5);
+  border-top: 1px solid var(--color-border);
+}
+
+.dateFilters {
+  display: flex;
+  gap: var(--spacing-4);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.datePickerContainer {
+  display: flex; align-items: center; gap: var(--spacing-3);
+  background-color: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: 0 var(--spacing-3);
+  height: 44px;
+  transition: border-color 0.2s;
+}
+.datePickerContainer:hover {
+  border-color: var(--color-border-hover);
+}
+
+.datePickerContainer label {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.datePickerContainer svg { color: var(--color-text-muted); }
+
+.datePickerInput {
+  background: transparent !important; border: none !important;
+  color: var(--color-text-emphasis) !important;
+  width: 90px; height: 100%;
+  padding: 0 !important; font-weight: 500;
+}
+.datePickerInput:focus { outline: none; }
+.datePickerInput::placeholder { color: var(--color-text-muted); }
+
+.mainActions {
+  display: flex;
+  gap: var(--spacing-3);
+}
+
+.actionButton {
+  height: 44px;
+  display: flex; align-items: center;
+  gap: var(--spacing-2);
+  font-size: var(--fs-sm);
+  padding: var(--spacing-2) var(--spacing-3);
+}

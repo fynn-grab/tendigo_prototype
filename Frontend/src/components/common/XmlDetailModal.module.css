@@ -1,0 +1,130 @@
+/* src/components/common/XmlDetailModal.module.css */
+.modalOverlay {
+  position: fixed; inset: 0;
+  background-color: rgba(13, 17, 23, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1000; padding: var(--spacing-4);
+}
+
+.modalContent {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-xl);
+  width: 100%; max-width: 900px;
+  height: 90vh;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.modalHeader {
+  display: flex; justify-content: space-between; align-items: flex-start; /* Changed alignment */
+  padding: var(--spacing-4) var(--spacing-6);
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+.modalHeader h3 { font-size: var(--fs-lg); color: var(--color-text-emphasis); line-height: 1.2; }
+.modalSubtitle {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--spacing-1);
+  font-weight: 400;
+}
+.closeButton {
+  background: none; border: none; color: var(--color-text-muted);
+  cursor: pointer; padding: var(--spacing-1);
+  border-radius: var(--border-radius-full);
+  transition: all 0.2s ease;
+  margin-top: -2px; /* Align with title */
+}
+.closeButton:hover { color: var(--color-text-emphasis); background-color: var(--color-surface-alt); }
+
+.dataContainer { overflow-y: auto; flex-grow: 1; padding: var(--spacing-8); }
+.status {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  height: 100%; color: var(--color-text-muted); gap: var(--spacing-4);
+}
+.status p { font-size: var(--fs-lg); }
+
+/* AI Summary styles */
+.summarySection { line-height: 1.7; }
+.summarySection h2, .summarySection h3, .summarySection h4 {
+  color: var(--color-text-emphasis); border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--spacing-2); margin-bottom: var(--spacing-4); margin-top: var(--spacing-6);
+}
+.summarySection h2:first-child, .summarySection h3:first-child, .summarySection h4:first-child { margin-top: 0; }
+.summarySection ul {
+  list-style-type: none; padding-left: 0;
+  display: flex; flex-direction: column; gap: var(--spacing-2);
+}
+.summarySection li {
+  padding: var(--spacing-3);
+  border-left: 3px solid var(--color-primary);
+  background-color: var(--color-surface-alt);
+  border-radius: var(--border-radius);
+}
+.summarySection strong { color: var(--color-text-emphasis); font-weight: 600; }
+
+/* Full data view styles */
+.detailsToggleSection {
+  margin-top: var(--spacing-8);
+  padding-top: var(--spacing-6);
+  border-top: 1px solid var(--color-border);
+}
+
+.toggleButton {
+  background: transparent; color: var(--color-text-emphasis);
+  width: 100%; border: 1px solid var(--color-border);
+  padding: var(--spacing-3) var(--spacing-4);
+  border-radius: var(--border-radius); cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: var(--fs-base); font-weight: 600;
+  transition: all 0.2s ease;
+}
+.toggleButton:hover { border-color: var(--color-border-hover); background-color: var(--color-surface-alt); }
+.toggleButton span { color: var(--color-text-muted); }
+.toggleButton:hover span { color: var(--color-text-emphasis); }
+
+.fullTreeContainer {
+  margin-top: var(--spacing-4); padding: var(--spacing-4);
+  background-color: var(--color-background);
+  border-radius: var(--border-radius-lg);
+  font-family: var(--font-family-mono); font-size: var(--fs-sm);
+  max-height: 500px; overflow-y: auto; border: 1px solid var(--color-border);
+}
+
+.node { margin-bottom: 0.1rem; }
+.tagLine { line-height: 1.6; white-space: nowrap; }
+.tag { color: #F778A1; } /* Pink */
+.attribute { margin-left: var(--spacing-4); }
+.attrName { color: #A279FF; } /* Purple */
+.attrValue { color: #82D182; } /* Green */
+.content {
+  padding-left: var(--spacing-4); border-left: 1px solid var(--color-border);
+  margin-left: var(--spacing-2);
+}
+.textContent {
+  color: var(--color-text);
+  padding: var(--spacing-2);
+  background-color: var(--color-surface-alt);
+  border-radius: var(--border-radius-sm);
+  margin: var(--spacing-2) 0;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+@media (max-width: 768px) {
+  .modalOverlay {
+    padding: 0;
+  }
+  .modalContent {
+    height: 100%;
+    max-height: 100%;
+    border-radius: 0;
+    border: none;
+  }
+  .dataContainer {
+    padding: var(--spacing-4);
+  }
+}
